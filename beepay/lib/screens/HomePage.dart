@@ -1,5 +1,8 @@
 import 'dart:ffi';
 
+import 'package:beepay/screens/RegisterPage.dart';
+import 'package:beepay/screens/prueba.dart';
+import 'package:beepay/widgets/reuseble.dart';
 import 'package:flutter/material.dart';
 
 class homepage extends StatefulWidget {
@@ -67,10 +70,10 @@ class LogInWidget extends StatelessWidget {
                     style: TextStyle(
                         fontStyle: FontStyle.normal,
                         fontSize: 23,
+                        fontFamily: 'Arlon',
                         color: Colors.grey.shade800),
                   ),
                   SizedBox(height: 12),
-
                   Container(
                     decoration: BoxDecoration(
                         color: Colors.amber[500],
@@ -83,10 +86,12 @@ class LogInWidget extends StatelessWidget {
                     padding: EdgeInsets.all(8.0),
                     child: TextFormField(
                       decoration: const InputDecoration(
-                        icon: const Icon(Icons.settings_cell),
+                        icon: const Icon(Icons.phone),
                         border: UnderlineInputBorder(),
                         labelText: 'Número de celular',
+                        //fontFamily: 'Arlon',
                       ),
+                      style: TextStyle(fontFamily: 'Arlon', fontSize: 18),
                     ),
                   ),
                   Container(
@@ -97,42 +102,21 @@ class LogInWidget extends StatelessWidget {
                         border: UnderlineInputBorder(),
                         labelText: 'Contraseña',
                       ),
+                      style: TextStyle(fontFamily: 'Arlon', fontSize: 18),
                     ),
                   ),
                   SizedBox(
                     height: 10,
                   ),
-                  ButtonTheme(
-                    minWidth: 250.0,
-                    height: 30.0,
-                    child: RaisedButton(
-                        color: Colors.amber[500],
-                        onPressed: () {},
-                        child: Text(
-                          "Ingresar",
-                          style: TextStyle(
-                              fontSize: 18, color: Colors.grey.shade900),
-                        ),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10))),
-                  ),
-                  // ElevatedButton(
-                  //   onPressed: () {},
-                  //   child: const Text('Ingresar'),
-                  //   style: ElevatedButton.styleFrom(
-                  //       elevation: 3,
-                  //       primary: Colors.amber[500],
-                  //       minimumSize: const Size(300, 50),
-                  //       shape: RoundedRectangleBorder(
-                  //           borderRadius: BorderRadius.circular(10))),
-                  // ),
-
-                  FlatButton(
+                  BotonAmarilloReusable("Ingresar"),
+                  TextButton(
                     onPressed: () {},
                     child: Text(
                       "¿Olvidaste tu contraseña?",
-                      style:
-                          TextStyle(fontSize: 15, color: Colors.grey.shade800),
+                      style: TextStyle(
+                          fontFamily: 'Arlon',
+                          fontSize: 15,
+                          color: Colors.grey.shade800),
                     ),
                   ),
                   Row(
@@ -145,12 +129,19 @@ class LogInWidget extends StatelessWidget {
                       Puntos(),
                     ],
                   ),
-                  FlatButton(
-                    onPressed: () {},
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Registerpage()));
+                    },
                     child: Text(
                       "¿Aún no tienes cuenta? Registrate",
-                      style:
-                          TextStyle(fontSize: 15, color: Colors.grey.shade800),
+                      style: TextStyle(
+                          fontFamily: 'Arlon',
+                          fontSize: 15,
+                          color: Colors.grey.shade800),
                     ),
                   ),
                 ],
